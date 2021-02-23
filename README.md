@@ -2,6 +2,8 @@
 
 This example uses a SPI resource and Smart I/O in PSoC 6 MCU to implement the Serial General Purpose Input/Output (SGPIO) Target interface, which is a four-signal bus defined in the [SFF-8485](https://members.snia.org/document/dl/25923) standard. Another SPI resource is used to implement the SGPIO Initiator, which drives the clock on the SGPIO bus.
 
+[Provide feedback on this Code Example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzEwNjYiLCJTcGVjIE51bWJlciI6IjAwMi0zMTA2NiIsIkRvYyBUaXRsZSI6IlBTb0MgNiBNQ1U6IFNHUElPIFRhcmdldCBJbnRlcmZhY2UiLCJyaWQiOiJybG9zIiwiRG9jIHZlcnNpb24iOiIxLjEuMCIsIkRvYyBMYW5ndWFnZSI6IkVuZ2xpc2giLCJEb2MgRGl2aXNpb24iOiJNQ0QiLCJEb2MgQlUiOiJJQ1ciLCJEb2MgRmFtaWx5IjoiUFNPQyJ9)
+
 ## Requirements
 
 - [ModusToolbox® software](https://www.cypress.com/products/modustoolbox-software-environment) v2.2  
@@ -23,6 +25,7 @@ This example uses a SPI resource and Smart I/O in PSoC 6 MCU to implement the Se
 - [PSoC 6 BLE Prototyping Kit](https://www.cypress.com/CY8CPROTO-063-BLE) (CY8CPROTO-063-BLE)
 - [PSoC 62S2 Wi-Fi BT Pioneer Kit](https://www.cypress.com/CY8CKIT-062S2-43012) (CY8CKIT-062S2-43012)
 - [PSoC 64 Secure Boot Wi-Fi BT Pioneer Kit](http://www.cypress.com/CY8CKIT-064B0S2-4343W) (CY8CKIT-064B0S2-4343W)
+- Rapid IoT Connect Platform RP01 Feather Kit (CYSBSYSKIT-01)
 
 ## Hardware Setup
 
@@ -33,6 +36,7 @@ This example implements a loop back between the SGPIO Target and SGPIO Master. E
 | Kit's Name  |  Pins to connect | SGPIO Signal Description |
 | :------- | :------------    | :---- |
 | CY8CPROTO-062-4343W | P9[0] to P13[0] <br> P9[1] to P13[1] <br> P9[2] to P13[2] <br> P9[3] to P13[3] | SDataOut <br> SDataIn <br> SClock <br> SLoad  |
+| CYSBSYSKIT-01 | P9[0] to P5[0] <br> P9[1] to P5[1] <br> P9[2] to P5[2] <br> P9[3] to P5[3] | SDataOut <br> SDataIn <br> SClock <br> SLoad  |
 | All other kits | P9[0] to P10[0] <br> P9[1] to P10[1] <br> P9[2] to P10[2] <br> P9[3] to P10[3] | SDataOut <br> SDataIn <br> SClock <br> SLoad |
 
 Pins from Port 9 are mapped to the SGPIO Target. Pins from Port 13 or 10 are mapped to the SGPIO Initiator.
@@ -231,7 +235,7 @@ There are two interrupts in this code example:
 | [CY8CPROTO-063-BLE](https://www.cypress.com/CY8CPROTO-063-BLE) PSoC 6 BLE Prototyping Kit | [CY8CPROTO-062-4343W](https://www.cypress.com/CY8CPROTO-062-4343W) PSoC 6 Wi-Fi BT Prototyping Kit |
 | [CY8CKIT-062S2-43012](https://www.cypress.com/CY8CKIT-062S2-43012) PSoC 62S2 Wi-Fi BT Pioneer Kit | [CY8CPROTO-062S3-4343W](https://www.cypress.com/CY8CPROTO-062S3-4343W) PSoC 62S3 Wi-Fi BT Prototyping Kit |
 | [CYW9P62S1-43438EVB-01](https://www.cypress.com/CYW9P62S1-43438EVB-01) PSoC 62S1 Wi-Fi BT Pioneer Kit | [CYW9P62S1-43012EVB-01](https://www.cypress.com/CYW9P62S1-43012EVB-01) PSoC 62S1 Wi-Fi BT Pioneer Kit |                                                              |
-|[CY8CKIT-064B0S2-4343W](http://www.cypress.com/CY8CKIT-064B0S2-4343W) PSoC 64 Secure Boot Wi-Fi BT Pioneer Kit|  |                                                              |
+|[CY8CKIT-064B0S2-4343W](http://www.cypress.com/CY8CKIT-064B0S2-4343W) PSoC 64 Secure Boot Wi-Fi BT Pioneer Kit|  CYSBSYSKIT-01 Rapid IoT Connect Platform RP01 Feather Kit |
 | **Libraries**                                                 |                                                              |
 | PSoC 6 Peripheral Driver Library (PDL) and docs  | [mtb-pdl-cat1](https://github.com/cypresssemiconductorco/mtb-pdl-cat1) on GitHub |
 | Cypress Hardware Abstraction Layer (HAL) Library and docs     | [mtb-hal-cat1](https://github.com/cypresssemiconductorco/mtb-hal-cat1) on GitHub |
@@ -256,6 +260,7 @@ Document Title: *CE231066* - *PSoC 6 MCU: SGPIO Target Interface*
 | Version | Description of Change |
 | ------- | --------------------- |
 | 1.0.0   | New code example      |
+| 1.1.0   | Added support for CYSBSYSKIT-01 Rapid IoT Connect Platform RP01 Feather Kit |
 ------
 
 All other trademarks or registered trademarks referenced herein are the property of their respective owners.
