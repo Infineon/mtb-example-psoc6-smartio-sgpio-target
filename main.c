@@ -49,7 +49,7 @@
 #if !defined (TARGET_CY8CKIT_062_BLE) && !defined (TARGET_CY8CPROTO_063_BLE) && \
     !defined (TARGET_CY8CKIT_062_WIFI_BT) && !defined (TARGET_CY8CKIT_062S2_43012) && \
     !defined (TARGET_CY8CPROTO_062_4343W) && !defined (TARGET_CY8CKIT_064B0S2_4343W) && \
-    !defined (TARGET_CYSBSYSKIT_01)
+    !defined (TARGET_CYSBSYSKIT_01) && !defined (TARGET_CYSBSYSKIT_DEV_01)
     #error Unsupported kit. Choose another kit.
 #endif
 
