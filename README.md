@@ -2,7 +2,7 @@
 
 This example uses a SPI resource and Smart I/O in PSoC 6 MCU to implement the Serial General Purpose Input/Output (SGPIO) Target interface, which is a four-signal bus defined in the [SFF-8485](https://members.snia.org/document/dl/25923) standard. Another SPI resource is used to implement the SGPIO Initiator, which drives the clock on the SGPIO bus.
 
-[Provide feedback on this Code Example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzEwNjYiLCJTcGVjIE51bWJlciI6IjAwMi0zMTA2NiIsIkRvYyBUaXRsZSI6IlBTb0MgNiBNQ1U6IFNHUElPIFRhcmdldCBJbnRlcmZhY2UiLCJyaWQiOiJybG9zIiwiRG9jIHZlcnNpb24iOiIxLjIuMCIsIkRvYyBMYW5ndWFnZSI6IkVuZ2xpc2giLCJEb2MgRGl2aXNpb24iOiJNQ0QiLCJEb2MgQlUiOiJJQ1ciLCJEb2MgRmFtaWx5IjoiUFNPQyJ9)
+[Provide feedback on this Code Example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzEwNjYiLCJTcGVjIE51bWJlciI6IjAwMi0zMTA2NiIsIkRvYyBUaXRsZSI6IlBTb0MgNiBNQ1U6IFNHUElPIFRhcmdldCBJbnRlcmZhY2UiLCJyaWQiOiJybG9zIiwiRG9jIHZlcnNpb24iOiIxLjMuMCIsIkRvYyBMYW5ndWFnZSI6IkVuZ2xpc2giLCJEb2MgRGl2aXNpb24iOiJNQ0QiLCJEb2MgQlUiOiJJQ1ciLCJEb2MgRmFtaWx5IjoiUFNPQyJ9)
 
 ## Requirements
 
@@ -265,6 +265,7 @@ Document Title: *CE231066* - *PSoC 6 MCU: SGPIO Target Interface*
 | 1.0.0   | New code example      |
 | 1.1.0   | Added support for CYSBSYSKIT-01 Rapid IoT Connect Platform RP01 Feather Kit |
 | 1.2.0   | Added support for CYSBSYSKIT-DEV-01 Rapid IoT Connect Developer Kit |
+| 1.3.0   | Updated CUSTOM design.modus for CYSBSYSKIT-01 Rapid IoT Connect Developer Kit |
 ------
 
 All other trademarks or registered trademarks referenced herein are the property of their respective owners.
