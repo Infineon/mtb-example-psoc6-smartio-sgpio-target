@@ -7,7 +7,7 @@
 * Related Document: See Readme.md
 *
 *******************************************************************************
-* Copyright 2020-2021, Cypress Semiconductor Corporation (an Infineon company) or
+* Copyright 2020-2022, Cypress Semiconductor Corporation (an Infineon company) or
 * an affiliate of Cypress Semiconductor Corporation.  All rights reserved.
 *
 * This software, including source code, documentation and related
@@ -47,15 +47,6 @@
 
 #include "sgpio_target.h"
 
-#if !defined (TARGET_CY8CKIT_062_BLE) && !defined (TARGET_CY8CPROTO_063_BLE) && \
-    !defined (TARGET_CY8CKIT_062_WIFI_BT) && !defined (TARGET_CY8CKIT_062S2_43012) && \
-    !defined (TARGET_CY8CPROTO_062_4343W) && !defined (TARGET_CY8CKIT_064B0S2_4343W) && \
-    !defined (TARGET_CYSBSYSKIT_01) && !defined (TARGET_CYSBSYSKIT_DEV_01) && \
-    !defined (TARGET_CY8CEVAL_062S2) && !defined (TARGET_CY8CEVAL_062S2_LAI_4373M2)
-    #error Unsupported kit. Choose another kit.
-#endif
-
-
 /*******************************************************************************
 * Macros
 ********************************************************************************/
@@ -67,13 +58,14 @@
 * Function Prototypes
 ********************************************************************************/
 static void sgpio_interrupt_handler(void);
-static void button_callback(void *arg, cyhal_gpio_event_t event);
+static void button_callback(void *handler_arg, cyhal_gpio_event_t event);
 
 /*******************************************************************************
 * Global Variables
 ********************************************************************************/
 static stc_sgpio_target_context_t sgpio_target_context;
 static cy_stc_scb_spi_context_t   sgpio_initiator_context;
+cyhal_gpio_callback_data_t sgpio_btn_callback_data; 
 
 /* SGPIO Configuration */
 stc_sgpio_target_config_t sgpio_config = {
@@ -128,7 +120,9 @@ int main(void)
     /* Initialize the User Button */
     cyhal_gpio_init(CYBSP_USER_BTN, CYHAL_GPIO_DIR_INPUT, CYHAL_GPIO_DRIVE_PULLUP, CYBSP_BTN_OFF);
     cyhal_gpio_enable_event(CYBSP_USER_BTN, CYHAL_GPIO_IRQ_RISE, CYHAL_ISR_PRIORITY_DEFAULT, true);
-    cyhal_gpio_register_callback(CYBSP_USER_BTN, button_callback, NULL);
+    
+    sgpio_btn_callback_data.callback = button_callback;
+    cyhal_gpio_register_callback(CYBSP_USER_BTN, &sgpio_btn_callback_data);
 
     __enable_irq();
 
@@ -221,9 +215,9 @@ static void sgpio_interrupt_handler(void)
 *  event: event that occurred
 *
 *******************************************************************************/
-static void button_callback(void *arg, cyhal_gpio_event_t event)
+static void button_callback(void* handler_arg, cyhal_gpio_event_t event)
 {
-    (void) arg;
+    (void) handler_arg;
 
     if (event & CYHAL_GPIO_IRQ_RISE)
     {
