@@ -4,7 +4,7 @@
 * Description: This is the source code for the Smart I/O SGPIO Target PSoC6 
 *              Application for ModusToolbox.
 *
-* Related Document: See Readme.md
+* Related Document: See Readme.md 
 *
 *******************************************************************************
 * Copyright 2020-2022, Cypress Semiconductor Corporation (an Infineon company) or
